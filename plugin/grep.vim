@@ -552,6 +552,7 @@ function! s:RunGrepRecursive(cmd_name, grep_cmd, action, ...)
     if g:Grep_Cygwin_Find == 1
         let cwd = substitute(cwd, "\\", "/", "g")
     endif
+    let cwd = cwd . '/' . expand('%:h') 
     if v:version >= 700
         let startdir = input("Start searching from directory: ", cwd, "dir")
     else
